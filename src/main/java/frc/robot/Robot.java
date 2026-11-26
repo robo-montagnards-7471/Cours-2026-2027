@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Controller;
-import frc.robot.data.StickPostion;
+import frc.robot.data.StickPosition;
+
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
  * the TimedRobot documentation. If you change the name of this class or the package after creating
@@ -81,8 +82,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    StickPosition left_joystick; = controller.getLeftJoystickPosition{};
-    StickPosition right_joystick; = controller.getRightJoystickPosition{};
+    StickPosition left_joystick = controller.getLeftJoystickPosition();
+    StickPosition right_joystick = controller.getRightJoystickPosition();
   
     StickPosition drive_stick = new StickPosition( right_joystick.x(), left_joystick.y());
   

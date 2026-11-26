@@ -4,7 +4,7 @@ import frc.robot.data.StickPosition;
 import frc.robot.data.Config;
 import edu.wpi.first.wpilibj.XboxController;
 
-public class controller {
+public class Controller {
     private final XboxController hardware_controller;
 
     public Controller() {

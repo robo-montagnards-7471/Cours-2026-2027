@@ -8,7 +8,7 @@ public class Controller {
     private final XboxController hardware_Controller;
 
     public Controller(){
-        this.hardware_Controller = new XboxController(Congig.command_port);
+        this.hardware_Controller = new XboxController(Config.command_port);
     }
     
     public StickPosition getLeftJoystickPosition(){

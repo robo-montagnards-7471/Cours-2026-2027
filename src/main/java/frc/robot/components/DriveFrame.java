@@ -7,7 +7,7 @@ public class DriveFrame {
     public DriveFrame() {
         PWMSparkFlex left_motor_controller = new PWMSparkFlex(Config.left_motor_port);
         left_motor_controller.setInverted(false);
-        PWMSparkFlex right_motor_controller = new PWMSparkFle(Config.right_motor_port);
+        PWMSparkFlex right_motor_controller = new PWMSparkFlex(Config.right_motor_port);
         right_motor_controller.setInverted(true);
     }
 }

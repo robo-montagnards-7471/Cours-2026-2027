@@ -7,6 +7,8 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Controller;
+import frc.robot.data.StickPosition;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -19,6 +21,8 @@ public class Robot extends TimedRobot {
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
+  Controller controller;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -27,6 +31,8 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+
+    controller = new Controller();
   }
 
   /**
@@ -76,7 +82,12 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    StickPosition left_joystick = controller.getLeftJoystickPosition();
+    StickPosition right_joystick = controller.getRightJoystickPosition();
+
+    StickPosition drive_stick = new StickPosition( right_joystick.x(), left_joystick.y() );
+  }
 
   /** This function is called once when the robot is disabled. */
   @Override
